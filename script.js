@@ -31,6 +31,7 @@ function updateCurrentScheduleTime() {
 function updateLocalStorage() {
     event.preventDefault();
     let btnIndex = Number($(this).attr('id'));
+    $('.alert-success').removeClass('alert-animation');
    if (plannerTask[btnIndex].value.trim() !="") {
        hourlyArray[btnIndex] = {
            time: $(".hour")[btnIndex].textContent.trim(),
@@ -38,8 +39,10 @@ function updateLocalStorage() {
        };
 
        localStorage.setItem("localHourlyTasks"), JSON.stringify(hourlyArray)
-       $('.alert-success').addClass('alert-animation');
-   };
+        setTimeout(function () {
+            $('.alert-success').addClass('alert-animation');
+            $('.alert-success').text('Successfully saved task at ${$(".hour")[btnIndex].textContent.trim()}!`);
+                }, 50);
 };
 
 function writeCurrentTasks() {
