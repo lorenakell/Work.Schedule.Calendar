@@ -56,8 +56,11 @@ function writeCurrentTasks() {
 
 setInterval(function () {
     currentTime = moment();
-    if (currentHour < currentTime.hour()) || (currentHour > currentTime.hour())) {
+    if (currentHour < currentTime.hour()) {
         updateCurrentScheduleTime();
+    } else if  (currentHour > currentTime.hour()) {
+        updateCurrentScheduleTime();
+        $("#currentDay").text(`${currentTime.format('dddd,MMMM Do')}`);
     }
 }, 60000);
 
