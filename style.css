@@ -23,6 +23,10 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+.container {
+  margin-bottom: 30px;
+}
+
 .description{
   white-space: pre-wrap;
 }
