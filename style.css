@@ -29,7 +29,7 @@ textarea {
   left: 50%;
   width: 50%;
   margin-left: -25%;
-  bottom: -60px;
+  bottom: -80px;
 }
 
 .container {
@@ -108,7 +108,7 @@ textarea {
 
 @keyframes show-and-hide {
   0% {
-    bottom: -60px;
+    bottom: -80px;
   }
   15% {
     bottom: 0;
@@ -117,6 +117,6 @@ textarea {
     bottom: 0;
   }
   100% {
-    bottom: -60px;
+    bottom: -80px;
   }
 }

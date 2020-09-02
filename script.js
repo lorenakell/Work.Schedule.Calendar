@@ -62,7 +62,7 @@ setInterval(function () {
         updateCurrentScheduleTime();
         $("#currentDay").text(`${currentTime.format('dddd,MMMM Do')}`);
     }
-}, 60000);
+}, 1000);
 
 updateCurrentScheduleTime();
 writeCurrentTasks();
