@@ -27,7 +27,7 @@ textarea{
   white-space: pre-wrap;
 }
 
-.col-1, .col-10{
+.col-2, .col-8, .col-sm-1, .col-sm-10{
   padding: 0;
 }
 
@@ -79,4 +79,9 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-@media
+@media (max-width: 600px) {
+  .row {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}
