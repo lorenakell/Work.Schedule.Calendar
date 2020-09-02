@@ -25,33 +25,37 @@ function updateCurrentScheduleTime() {
         } else {
             $(this).addClass('future');
         }
-    })
-}
+    });
+};
 
 function updateLocalStorage() {
     event.preventDefault();
     let btnIndex = Number($(this).attr('id'));
-    hourlyArray[btnIndex] = {
-        time: $(".hour")[btnIndex].textContent.trim(),
-        task: plannerTask[btnIndex].value
-    }
-    localStorage.setItem("localHourlyTasks", JSON.stringify(hourlyArray));
-}
+   if (plannerTask[btnIndex].value.trim() !="") {
+       hourlyArray[btnIndex] = {
+           time: $(".hour")[btnIndex].textContent.trim(),
+           task: plannerTask[btnIndex].value
+       };
+
+       localStorage.setItem("localHourlyTasks"), JSON.stringify(hourlyArray)
+       $('.alert-success').addClass('alert-animation');
+   };
+};
 
 function writeCurrentTasks() {
    $.each(hourlyArray, function (i) {
        if (hourlyArray [i]) {
            plannerTask[i].value = hourlyArray[i].task;
-       }
-    })
-}
+       };
+    });
+};
 
-setInterval(function() {
+setInterval(function () {
     currentTime = moment();
     if (currentHour < currentTime.hour()) {
         updateCurrentScheduleTime();
     }
-}, 60000)
+}, 60000);
 
 updateCurrentScheduleTime();
 writeCurrentTasks();
