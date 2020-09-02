@@ -1,6 +1,6 @@
 var hourlyArray;
 var currentTime = moment();
-var currentHour = currentTime.hour();
+var currentHour;
 var textBlock = $(".col-8");
 var plannerTask = $("textarea");
 $.each(plannerTask, function () {
@@ -26,6 +26,7 @@ function updateCurrentScheduleTime() {
             $(this).addClass('future');
         }
     });
+    currentHour = currentTime.hour();
 };
 
 function updateLocalStorage() {
@@ -42,7 +43,7 @@ function updateLocalStorage() {
         setTimeout(function () {
             $('.alert-success').addClass('alert-animation');
             $('.alert-success').text('Successfully saved task at ${$(".hour")[btnIndex].textContent.trim()}!`);
-                }, 50);
+                }, 100);
 };
 
 function writeCurrentTasks() {
@@ -55,7 +56,7 @@ function writeCurrentTasks() {
 
 setInterval(function () {
     currentTime = moment();
-    if (currentHour < currentTime.hour()) {
+    if (currentHour < currentTime.hour()) || (currentHour > currentTime.hour())) {
         updateCurrentScheduleTime();
     }
 }, 60000);
