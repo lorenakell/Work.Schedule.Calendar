@@ -1,16 +1,14 @@
 var hourlyArray;
 var currentTime = moment();
 var textBlock = $(".col-8");
+var plannerTask = $("textarea");
 
 if (localStorage.getItem("localHourlyTasks")) {
-    hourlyArray = JSON.parse(localStorage.getItem("localHourlyTasks"));
-} else {
-    hourlyArray =[];
 }
 
 $("#currentDay").text(`${currentTime.format('dddd, MMMM Do')}`);
 
-function updateCurrentScheduleTime( ) {
+function updateCurrentScheduleTime() {
     textBlock.removeClass('past present future');
     $.each(textBlock, function(scheduleBlockHour) {
         if)scheduleBlockHour < (currentTime.hour()-9)) {
@@ -22,3 +20,20 @@ function updateCurrentScheduleTime( ) {
         }
     })
 }
+
+function updateLocalStorage() {
+    event.preventDefault();
+    let btnIndex = Number($(this).attr('id'));
+    hourlyArray[btnIndex] = plannerTask[btnIndex].value;
+    localStorage.setItem("localHourlyTasks", JSON.stringify(hourlyArray));
+}
+
+function writeCurrentTasks() {
+    $.each(hourlyArray, function(i) {
+        plannerTask[i].value = hourlyArray[i];
+    })
+}
+
+updateCurrentScheduleTime();
+writeCurrentTasks();
+$("button").click(updateLocalStorage);
