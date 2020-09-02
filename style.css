@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -23,19 +23,28 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+.alert-success {
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  width: 50%;
+  margin-left: -25%;
+  bottom: -60px;
+}
+
 .container {
   margin-bottom: 30px;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
-.col-2, .col-8, .col-sm-1, .col-sm-10{
+.col-2, .col-8, .col-sm-1, .col-sm-10 {
   padding: 0;
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -83,9 +92,31 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
+.alert-animation (
+  animation-name: show-and-hide;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-duration: 4.00s;
+)
+
 @media (max-width: 600px) {
   .row {
     margin-left: 2%;
     margin-right: 2%;
+  }
+}
+
+@keyframes show-and-hide {
+  0% {
+    bottom: -60px;
+  }
+  15% {
+    bottom: 0;
+  }
+  85% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -60px;
   }
 }
